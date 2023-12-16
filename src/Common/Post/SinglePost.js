@@ -14,33 +14,35 @@ export const SinglePost = ({ }) => {
     }
 
     return (
-        <Box mt={5} p={5} w={"100%"} bg="white" align="start" boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
-            <Image w={"100%"} aspectRatio={16/9} objectFit={"cover"} src={"/assets/Ganesh11.jpg"} alt="" />
-            <Flex my={3} fontSize={13} color="gray.500" fontStyle={"italic"}>
-                <Text cursor={"pointer"}>{post.tag}</Text>
-                <Text mx={2}>-</Text>
-                <Text cursor={"pointer"}>{post.author}</Text>
-                <Text mx={2}>-</Text>
-                <Text>{dayjs(post.postedAt).format("MMMM DD, YYYY")}</Text>
-            </Flex>
-            <Flex align={"end"}>
-                <Text
-                    maxH="calc(1.2em * 4)"
-                    align={"justify"}
-                    overflow="hidden"
-                    textOverflow="ellipsis"
-                    whiteSpace="pre-line"
-                    as="span"
-                    display="-webkit-box"
-                    lineHeight="1.2em"
-                    _webkitBoxOrient="vertical"
-                    _webkitLineClamp={4}
-                >
-                    {post.description}...
-                </Text>
-                <Text>...</Text>
-            </Flex>
-            <Flex w={"fit-content"} mt={4} px={4} py={2} fontWeight={"semibold"} fontSize={13} border="1px solid" borderColor={"gray.300"} cursor={"pointer"}>CONTINUE READING</Flex>
+        <Box mt={5} p={5} w={"100%"} bg="white" align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
+            <Image w={{ base: "100%", lg: "35%" }} aspectRatio={16 / 9} objectFit={"cover"} src={"/assets/Ganesh11.jpg"} alt="" />
+            <Box ml={{ base: 0, md: 5 }}>
+                <Flex my={3} fontSize={{ base: 10, sm: 12, lg: 13 }} color="gray.500" fontStyle={"italic"}>
+                    <Text cursor={"pointer"}>{post.tag}</Text>
+                    <Text mx={2}>-</Text>
+                    <Text cursor={"pointer"}>{post.author}</Text>
+                    <Text mx={2}>-</Text>
+                    <Text>{dayjs(post.postedAt).format("MMMM DD, YYYY")}</Text>
+                </Flex>
+                <Flex align={"end"}>
+                    <Text
+                        maxH="calc(1.2em * 4)"
+                        align={"justify"}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        whiteSpace="pre-line"
+                        as="span"
+                        display="-webkit-box"
+                        lineHeight="1.2em"
+                        _webkitBoxOrient="vertical"
+                        _webkitLineClamp={4}
+                    >
+                        {post.description}...
+                    </Text>
+                    <Text>...</Text>
+                </Flex>
+                <Flex w={"fit-content"} mt={4} px={4} py={2} fontWeight={"semibold"} fontSize={13} border="1px solid" borderColor={"gray.300"} cursor={"pointer"}>CONTINUE READING</Flex>
+            </Box>
         </Box>
     )
 }

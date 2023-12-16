@@ -1,9 +1,7 @@
-import { CenterX } from "@/common/CenterX";
-import { Box, Flex, HStack, IconButton, Text, Tooltip } from "@chakra-ui/react";
-import { AiFillGithub, AiFillLinkedin, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai"
+import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import { FaFacebookF } from "react-icons/fa"
-import { LiaPhoneVolumeSolid } from "react-icons/lia"
 import React from "react";
+import { CenterX } from "../CenterX";
 
 export const HeaderTop = () => {
     return (
