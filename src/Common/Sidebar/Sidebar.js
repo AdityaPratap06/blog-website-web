@@ -6,7 +6,7 @@ import { Facebook } from "./Facebook";
 
 export const Sidebar = () => {
     return (
-        <Box w={{ base: "100%", md: "30%" }} pl={{ base: 0, md: 3 }} >
+        <Box w={{ base: "100%", lg: "35%" }} pl={{ base: 0, lg: 3 }} >
             <FollowUs />
             <PopularPosts />
             {/* <Facebook /> */}

@@ -4,7 +4,7 @@ import React from "react";
 export const CenterX = ({ children }) => {
     return (
         <Box align="center">
-            <Flex w={{ base: "95%", sm: "85%", md: "80%", lg: "70%" }} align="start" flexDir={{ base: "column", md: "row" }}>
+            <Flex w={{ base: "95%", sm: "90%", md: "90%", lg: "95%", xl: "70%" }} align="start" flexDir={{ base: "column", lg: "row" }}>
                 {children}
             </Flex>
         </Box>

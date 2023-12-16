@@ -10,7 +10,7 @@ export default function Home() {
     <Box h="100vh">
       <Header />
       <CenterX>
-        <Flex w="100%" flexDir={{ base: "column", md: "row" }}>
+        <Flex w="100%" flexDir={{ base: "column", lg: "row" }}>
           <AllPosts />
           <Sidebar />
         </Flex>
