@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Text } from "@chakra-ui/react";
 import { map } from "lodash";
 import React from "react";
@@ -8,7 +8,7 @@ export const HeaderItem = ({ item }) => {
         <Box>
             <Popover trigger={'hover'} placement={"bottom"} >
                 <PopoverTrigger>
-                    <Text>{item?.label}</Text>
+                    <Text>{item?.label} {item?.children ? <ChevronDownIcon /> : null}</Text>
                 </PopoverTrigger>
                 <PopoverContent
                     borderTop={'3px solid blue'}
