@@ -1,14 +1,11 @@
 import React from 'react';
-// import { MainLayout } from '../../../app/layouts';
-// import { DefaultSidebar } from '../../../app/layouts/sidebar';
-// import DeleteInvoice from '../../../features/DeleteInvoice';
-import { Box } from '@chakra-ui/react';
+import { Blog } from '../../Common/Blog';
+import { MainLayout } from '../../layouts/MainLayout';
 
 export default function Page() {
-    return(<Box></Box>)
-    // return <DeleteInvoice />;
+    return (
+        <MainLayout>
+            <Blog />
+        </MainLayout>
+    )
 }
-
-// Page.getLayout = function getLayout(page) {
-//     return <MainLayout sidebar={<DefaultSidebar />}>{page}</MainLayout>;
-// };
