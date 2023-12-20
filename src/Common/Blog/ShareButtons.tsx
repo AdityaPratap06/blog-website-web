@@ -18,7 +18,7 @@ export const ShareButtons = ({ title, link }: any) => {
 
     const handleLinkedInShare = () => {
         const message = encodeURIComponent(`Check out this post: ${title} - ${blogUrl}${link}`);
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/post/${link}&title=${message}`, '_blank');
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${blogUrl}${link}&title=${message}`, '_blank');
     };
 
     const handleMailShare = () => {
