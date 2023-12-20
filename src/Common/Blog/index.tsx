@@ -1,5 +1,5 @@
 import { usePostStore } from "../../store/post";
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { LoadingContainer } from "../LoadingContainer";
 import { STATUS } from "../Helper";
@@ -51,10 +51,14 @@ export const Blog = ({ link }: any) => {
                                 <Text>{dayjs(postData.postedAt).format("MMMM DD, YYYY")}</Text>
                             </Flex>
                             {map(postData.posts, post => (
-                                <Flex mt={3} flexDir={"column"} align={"start"}>
+                                <Flex mt={5} flexDir={"column"} align={"start"}>
                                     {post.heading ? <Text fontSize={20} fontWeight={"bold"}>{post.heading}</Text> : null}
                                     {post.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
                                     <Text mt={3} align={"justify"}>{post.description}</Text>
+
+                                    <Flex w={"100%"} mt={3} flexDir={"column"} align={"center"}>
+                                        <Image cursor={"pointer"} title={post.imageTitle} src={post.url} alt={post.imageTitle} />
+                                    </Flex>
                                 </Flex>
                             ))}
                             <Flex mt={5} mb={10} fontWeight={"bold"} fontSize={20}>
