@@ -1,11 +1,12 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { SinglePost } from "./SinglePost";
 import { map } from "lodash";
 import { usePostStore } from "@/store/post";
+import { LoadingContainer } from "../LoadingContainer";
+import { STATUS } from "../Helper";
 
 export const AllPosts = () => {
-    const postsData = [1, 2, 3, 4, 5,]
 
     const { getAllPostsAction, getAllPostsStatus, allPostsData } = usePostStore(s => ({
         getAllPostsAction: s.getAllPostsAction,
@@ -19,9 +20,15 @@ export const AllPosts = () => {
 
     return (
         <Box >
-            {map(allPostsData?.data, post => (
-                <SinglePost post={post} />
-            ))}
+            <LoadingContainer loading={getAllPostsStatus === STATUS.FETCHING}>
+                {allPostsData?.data?.length ?
+                    map(allPostsData?.data, post => (
+                        <SinglePost post={post} />
+                    ))
+                    :
+                    <Text>No Posts Found</Text>
+                }
+            </LoadingContainer>
         </Box>
     )
 }
