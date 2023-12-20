@@ -7,8 +7,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { map } from "lodash";
-import { LiaFacebookF, LiaLinkedinIn, LiaWhatsapp } from "react-icons/lia"
-import { AiOutlineMail } from "react-icons/ai"
+import { ShareButtons } from "./ShareButtons";
 
 export const Blog = ({ link }: any) => {
     const router = useRouter();
@@ -73,12 +72,7 @@ export const Blog = ({ link }: any) => {
                                     <Text mt={2} mr={1} px={3} pb={1} bg={"#F2F2F2"} color={"#9271CE"} cursor={"pointer"} _hover={{ bg: "black", color: "white" }}>{tag}</Text>
                                 ))}
                             </Flex>
-                            <Grid mt={3} templateColumns='repeat(5, 1fr)' gap={2} color="white">
-                                <GridItem w='100%' py={2} px={7} bg='blue.700'><LiaFacebookF /></GridItem>
-                                <GridItem w='100%' py={2} px={7} bg='green.400'><LiaWhatsapp /></GridItem>
-                                <GridItem w='100%' py={2} px={7} bg='blue.600'><LiaLinkedinIn /></GridItem>
-                                <GridItem w='100%' py={2} px={7} bg='gray.500'><AiOutlineMail /></GridItem>
-                            </Grid>
+                            <ShareButtons title={postData.title} link={postData.link} />
                         </Flex>
                     </Flex>
                     :
