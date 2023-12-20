@@ -35,7 +35,7 @@ export const SinglePost = ({ post }) => {
                     </Text>
                     <Text>...</Text>
                 </Flex>
-                <Flex w={"fit-content"} mt={4} px={4} py={2} fontWeight={"semibold"} fontSize={13} border="1px solid" borderColor={"gray.300"} cursor={"pointer"}>CONTINUE READING</Flex>
+                <Flex w={"fit-content"} mt={4} px={4} py={2} fontWeight={"semibold"} fontSize={13} border="1px solid" borderColor={"gray.300"} cursor={"pointer"} onClick={() => router.push("/" + post.link)}>CONTINUE READING</Flex>
             </Box>
         </Box>
     )

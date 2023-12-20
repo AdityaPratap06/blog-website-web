@@ -42,7 +42,7 @@ export const Blog = ({ link }: any) => {
                                     <BreadcrumbLink href='#'>{postData.title}</BreadcrumbLink>
                                 </BreadcrumbItem>
                             </Breadcrumb>
-                            <Heading mt={5} as={"h1"} fontSize={26} fontWeight={"semibold"}>{postData.title}</Heading>
+                            <Heading mt={5} as={"h1"} fontSize={26} fontWeight={"semibold"} textAlign={"start"}>{postData.title}</Heading>
                             <Flex py={2} fontSize={{ base: 10, sm: 12, lg: 13 }} color="gray.500" fontStyle={"italic"}>
                                 <Text cursor={"pointer"}>{postData.tags?.[0]}</Text>
                                 <Text mx={2}>-</Text>
