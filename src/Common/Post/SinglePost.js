@@ -1,7 +1,6 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import React from "react";
-import { threeDotsCss } from "../Helper";
 import { useRouter } from "next/router";
 
 export const SinglePost = ({ post }) => {

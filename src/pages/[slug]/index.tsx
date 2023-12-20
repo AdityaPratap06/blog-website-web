@@ -1,11 +1,14 @@
 import React from 'react';
-import { Blog } from '../../Common/Blog';
 import { MainLayout } from '../../layouts/MainLayout';
+import { useRouter } from 'next/router';
+import { Blog } from '@/Common/Blog';
 
 export default function Page() {
+    const { query } = useRouter()
+
     return (
         <MainLayout>
-            <Blog />
+            <Blog link={query.slug} />
         </MainLayout>
     )
 }

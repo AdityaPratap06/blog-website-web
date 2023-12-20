@@ -2,11 +2,12 @@
 import { create } from "apisauce";
 import { apiMonitor } from "./monitor";
 
-// const BASE_URL = "http://localhost:3005";
-const BASE_URL = "https://blog-website-node.onrender.com/";
+const BASE_URL = "http://localhost:3005";
+// const BASE_URL = "https://blog-website-node.onrender.com/";
 
 export const URIS = {
-  GET_ALL_POSTS: "/post/all"
+  GET_ALL_POSTS: "/post/all",
+  GET_POST: "/post"
 };
 
 let api = create({
@@ -26,13 +27,13 @@ api.axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
-  //   let originalRequest = error.config;
-  //   let isunauth = error.response && error.response.status === 401;
-  //   if (isunauth && !originalRequest._retry && !originalRequest.headers._retry) {
-  //     originalRequest._retry = true;
-  //   } else {
-      return Promise.resolve(error);
-  //   }
+    //   let originalRequest = error.config;
+    //   let isunauth = error.response && error.response.status === 401;
+    //   if (isunauth && !originalRequest._retry && !originalRequest.headers._retry) {
+    //     originalRequest._retry = true;
+    //   } else {
+    return Promise.resolve(error);
+    //   }
   }
 );
 

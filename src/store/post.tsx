@@ -21,6 +21,19 @@ export const usePostStore = create((set, get) => ({
         }
     },
 
+    getPostAction: async (payload: any) => {
+        set({ getPostStatus: STATUS.FETCHING });
+        const { data, ok } = await apis.getPostApi(payload);
+        if (ok) {
+            set({
+                postData: data,
+                getPostStatus: STATUS.SUCCESS,
+            });
+        } else {
+            set({ getPostStatus: STATUS.FAILED });
+        }
+    },
+
     // resetStatus: async () => {
     //     set({
     //         addAccountStatus: STATUS.NOT_STARTED,
