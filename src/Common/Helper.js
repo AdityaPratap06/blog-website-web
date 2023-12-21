@@ -113,7 +113,7 @@ export const ITEMS = [
         ]
     },
     {
-        label: "Activities",
+        label: "Categories",
         children: [
             {
                 label: 'Adventure',
@@ -148,6 +148,10 @@ export const ITEMS = [
                     {
                         label: 'Festivals',
                         href: '#Festivals',
+                    },
+                    {
+                        label: 'Temples',
+                        href: '#Temples',
                     },
                     {
                         label: 'Food & Cuisine',

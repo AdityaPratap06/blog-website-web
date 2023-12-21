@@ -34,7 +34,7 @@ export const Blog = ({ link }: any) => {
                                 </BreadcrumbItem>
 
                                 <BreadcrumbItem>
-                                    <BreadcrumbLink href={"/?category:" + postData.category.id}>{postData.category.label}</BreadcrumbLink>
+                                    <BreadcrumbLink href={"/?category:" + postData.category?.id}>{postData.category?.label}</BreadcrumbLink>
                                 </BreadcrumbItem>
 
                                 <BreadcrumbItem isCurrentPage>
@@ -45,11 +45,20 @@ export const Blog = ({ link }: any) => {
                             <Flex py={2} fontSize={{ base: 10, sm: 12, lg: 13 }} color="gray.500" fontStyle={"italic"}>
                                 <Text cursor={"pointer"}>{postData.tags?.[0]}</Text>
                                 <Text mx={2}>-</Text>
-                                <Text cursor={"pointer"} _hover={{ color: "gray.900" }} onClick={() => window.open(postData.author.url)}>{postData.author?.name}</Text>
+                                <Text cursor={"pointer"} _hover={{ color: "gray.900" }} onClick={() => window.open(postData.author?.url)}>{postData.author?.name}</Text>
                                 <Text mx={2}>-</Text>
                                 <Text>{dayjs(postData.postedAt).format("MMMM DD, YYYY")}</Text>
                             </Flex>
-                            {map(postData.posts, post => (
+                            <Flex mt={5} flexDir={"column"} align={"start"}>
+                                {postData.intro?.heading ? <Text fontSize={20} fontWeight={"bold"}>{postData.intro?.heading}</Text> : null}
+                                {postData.intro?.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{postData.intro?.subHeading}</Text> : null}
+                                <Text mt={3} align={"justify"}>{postData.intro?.description}</Text>
+
+                                <Flex w={"100%"} mt={3} flexDir={"column"} align={"center"}>
+                                    <Image cursor={"pointer"} title={postData.intro?.imageTitle} src={postData.intro?.url} alt={postData.intro?.imageTitle} />
+                                </Flex>
+                            </Flex>
+                            {map(postData.details, post => (
                                 <Flex mt={5} flexDir={"column"} align={"start"}>
                                     {post.heading ? <Text fontSize={20} fontWeight={"bold"}>{post.heading}</Text> : null}
                                     {post.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
@@ -62,7 +71,7 @@ export const Blog = ({ link }: any) => {
                             ))}
                             <Flex mt={5} mb={10} fontWeight={"bold"} fontSize={20}>
                                 <Text>by:</Text>
-                                <Text ml={2}>{postData.author.name}</Text>
+                                <Text ml={2}>{postData.author?.name}</Text>
                             </Flex>
                         </Flex>
                         <Flex flexDir={"column"} align={"start"}>
