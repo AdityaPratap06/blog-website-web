@@ -1,18 +1,23 @@
 import { Box, Flex, Grid, GridItem, IconButton, Input, InputGroup, InputLeftAddon, InputRightAddon, Menu, MenuButton, MenuItem, MenuList, Portal, Text, useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { HeaderTop } from "./HeadetTop";
-import { CenterX } from "../CenterX";
 
 import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons'
 import { HeaderItem } from "./HeaderItem";
 import { map } from "lodash";
 import { ITEMS } from "../Helper";
 import { HeaderMenu } from "./HeaderMenu";
+import { useRouter } from "next/router";
+import { CenterX } from "../CenterX";
 
 export const Header = () => {
-
+    const router = useRouter()
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [inputData, setInputData] = useState()
 
+    const handleSearch = () => {
+        router.push("/?search=" + inputData)
+    }
     return (
         <Box>
             <HeaderTop />
@@ -24,8 +29,8 @@ export const Header = () => {
                             <IconButton display={{ base: "initial", md: "none" }} icon={<HamburgerIcon />} mr={10} onClick={onOpen} />
                             <InputGroup size='md' _focus={"none"}>
                                 <InputLeftAddon><SearchIcon /></InputLeftAddon>
-                                <Input focus={"none"} placeholder='Search here' />
-                                <InputRightAddon >Search</InputRightAddon>
+                                <Input _focus={"none"} placeholder='Search here' onChange={(e) => setInputData(e.target.value)} />
+                                <InputRightAddon as={"Button"} onClick={handleSearch}>Search</InputRightAddon>
                             </InputGroup>
                         </Flex>
                     </Flex>

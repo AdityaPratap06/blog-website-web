@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { Header } from "../Common/Header/Header";
 import { Sidebar } from "../Common/Sidebar/Sidebar";

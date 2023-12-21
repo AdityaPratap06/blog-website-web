@@ -5,8 +5,11 @@ import { map } from "lodash";
 import { usePostStore } from "@/store/post";
 import { LoadingContainer } from "../LoadingContainer";
 import { STATUS } from "../Helper";
+import { useRouter } from "next/router";
+import { EmptyBox } from "../EmptyBox";
 
 export const AllPosts = () => {
+    const { query } = useRouter()
 
     const { getAllPostsAction, getAllPostsStatus, allPostsData } = usePostStore(s => ({
         getAllPostsAction: s.getAllPostsAction,
@@ -15,8 +18,8 @@ export const AllPosts = () => {
     }))
 
     useEffect(() => {
-        getAllPostsAction({ page: 1, limit: 10 })
-    }, [getAllPostsAction])
+        getAllPostsAction({ page: 1, limit: 10, ...query })
+    }, [getAllPostsAction, query])
 
     return (
         <Box >
@@ -26,7 +29,7 @@ export const AllPosts = () => {
                         <SinglePost post={post} />
                     ))
                     :
-                    <Text>No Posts Found</Text>
+                    <EmptyBox title="No Post Found" />
                 }
             </LoadingContainer>
         </Box>

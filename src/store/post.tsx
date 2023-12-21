@@ -4,7 +4,7 @@
 // import { filter, map } from "lodash";
 
 import { create } from "zustand";
-import { STATUS } from "../Common/Helper"
+import { STATUS } from "../Common/Helper";
 import { apis } from "../services/apis/api";
 
 export const usePostStore = create((set, get) => ({

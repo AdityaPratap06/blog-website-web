@@ -53,7 +53,7 @@ export const SinglePost = ({ post }) => {
                     borderColor={"gray.300"}
                     cursor={"pointer"}
                     onClick={() => router.push("/" + post.link)}
-                    _hover={{ borderColor: "gray.600", color: "#9271CE" }}
+                    _hover={{ borderColor: "#9271CE", color: "#9271CE" }}
                 >
                     CONTINUE READING
                 </Flex>

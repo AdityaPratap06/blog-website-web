@@ -1,14 +1,21 @@
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Text } from "@chakra-ui/react";
 import { map } from "lodash";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const HeaderItem = ({ item }) => {
+    const router = useRouter()
+
+    const handleRoute = (url) => {
+        router.push(url)
+    }
+
     return (
         <Box>
             <Popover trigger={'hover'} placement={"bottom"} >
                 <PopoverTrigger>
-                    <Text>{item?.label} {item?.children ? <ChevronDownIcon /> : null}</Text>
+                    <Text onClick={() => handleRoute(item?.href)}>{item?.label} {item?.children ? <ChevronDownIcon /> : null}</Text>
                 </PopoverTrigger>
                 <PopoverContent
                     borderTop={'3px solid blue'}
@@ -20,7 +27,14 @@ export const HeaderItem = ({ item }) => {
                     {map(item?.children, child => (
                         <Popover trigger={'hover'} placement={"right-start"} >
                             <PopoverTrigger>
-                                <Flex px={3} py={2} fontSize={14} cursor={child.children ? "default" : "pointer"} _hover={{ bg: "black", color: "white" }} align={"center"} justify={"space-between"}>
+                                <Flex px={3} py={2}
+                                    fontSize={14}
+                                    align={"center"}
+                                    cursor={child.children ? "default" : "pointer"}
+                                    _hover={{ bg: "black", color: "white" }}
+                                    justify={"space-between"}
+                                    onClick={() => handleRoute(child.href)}
+                                >
                                     <Text mr={10}>{child.label}</Text>
                                     {child.children ?
                                         <ChevronRightIcon />
@@ -37,7 +51,13 @@ export const HeaderItem = ({ item }) => {
                                 boxShadow={'xl'}
                             >
                                 {map(child.children, c => (
-                                    <Flex px={3} py={2} fontSize={14} _hover={{ bg: "black", color: "white" }} align={"center"} justify={"space-between"} cursor={"pointer"}>
+                                    <Flex px={3} py={2} fontSize={14}
+                                        _hover={{ bg: "black", color: "white" }}
+                                        align={"center"}
+                                        justify={"space-between"}
+                                        cursor={"pointer"}
+                                        onClick={() => handleRoute(c.href)}
+                                    >
                                         <Text mr={10}>{c.label}</Text>
                                         {/* <ChevronRightIcon /> */}
                                     </Flex>

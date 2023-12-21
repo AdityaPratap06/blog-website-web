@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { map } from "lodash";
 import { ShareButtons } from "./ShareButtons";
+import { ScrollIndicator } from "../ScrollIndicator";
 
 export const Blog = ({ link }: any) => {
     const router = useRouter();
@@ -32,11 +33,9 @@ export const Blog = ({ link }: any) => {
                                 <BreadcrumbItem>
                                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                                 </BreadcrumbItem>
-
                                 <BreadcrumbItem>
-                                    <BreadcrumbLink href={"/?category:" + postData.category?.id}>{postData.category?.label}</BreadcrumbLink>
+                                    <BreadcrumbLink href={"/?category=" + postData.category?.id}>{postData.category?.label}</BreadcrumbLink>
                                 </BreadcrumbItem>
-
                                 <BreadcrumbItem isCurrentPage>
                                     <BreadcrumbLink href='#'>{postData.title}</BreadcrumbLink>
                                 </BreadcrumbItem>
@@ -83,6 +82,7 @@ export const Blog = ({ link }: any) => {
                             </Flex>
                             <ShareButtons title={postData.title} link={postData.link} />
                         </Flex>
+                        <ScrollIndicator />
                     </Flex>
                     :
                     null
