@@ -7,7 +7,8 @@ const BASE_URL = "https://blog-website-node.onrender.com/";
 
 export const URIS = {
   GET_ALL_POSTS: "/post/all",
-  GET_POST: "/post"
+  GET_POST: "/post",
+  GET_POPULAR_POSTS: "/post/popular"
 };
 
 let api = create({

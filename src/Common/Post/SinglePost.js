@@ -8,7 +8,7 @@ export const SinglePost = ({ post }) => {
 
     return (
         <Box mt={5} p={5} w={"100%"} bg="white" cursor={"default"} align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
-            <Image w={{ base: "100%", lg: "35%" }} aspectRatio={16 / 9} objectFit={"cover"} src={"/assets/Ganesh11.jpg"} alt="" />
+            <Image w={{ base: "100%", lg: "35%" }} aspectRatio={16 / 9} objectFit={"cover"} src={post.intro.url} alt="" />
             <Box ml={{ base: 0, md: 5 }}>
                 <Text
                     mt={{ base: 2, lg: 0 }}
