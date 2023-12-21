@@ -1,3 +1,5 @@
+import { createStandaloneToast } from "@chakra-ui/react";
+
 export const ITEMS = [
     {
         label: 'Home',
@@ -12,35 +14,35 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Jammu & Kashmir',
-                        href: '#Jammu & Kashmir',
+                        href: '/?destination=jammu-kashmir',
                     },
                     {
                         label: 'Himachal Pradesh',
-                        href: '#Himachal Pradesh',
+                        href: '/?destination=himachal-pradesh',
                     },
                     {
                         label: 'Punjab',
-                        href: '#Punjab',
+                        href: '/?destination=punjab',
                     },
                     {
                         label: 'Uttarakhand',
-                        href: '#Uttarakhand',
+                        href: '/?destination=uttarakhand',
                     },
                     {
                         label: 'Haryana',
-                        href: '#Haryana',
+                        href: '/?destination=haryana',
                     },
                     {
                         label: 'Delhi',
-                        href: '#Delhi',
+                        href: '/?destination=delhi',
                     },
                     {
                         label: 'Rajasthan',
-                        href: '#Rajasthan',
+                        href: '/?destination=rajasthan',
                     },
                     {
                         label: 'Uttar Pradesh',
-                        href: '#Uttar-Pradesh',
+                        href: '/?destination=uttar-pradesh',
                     },
                 ]
             },
@@ -50,23 +52,23 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Andhra Pradesh',
-                        href: '#Andhra Pradesh',
+                        href: '/?destination=andhra-pradesh',
                     },
                     {
                         label: 'Karnataka',
-                        href: '#Karnataka',
+                        href: '/?destination=karnataka',
                     },
                     {
                         label: 'Kerala',
-                        href: '#Kerala',
+                        href: '/?destination=kerala',
                     },
                     {
                         label: 'Tamil Nadu',
-                        href: '#Tamil Nadu',
+                        href: '/?destination=tamil-nadu',
                     },
                     {
                         label: 'Telangana',
-                        href: '#Telangana',
+                        href: '/?destination=telangana',
                     },
                 ]
             },
@@ -76,19 +78,19 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Bihar',
-                        href: '#Bihar',
+                        href: '/?destination=bihar',
                     },
                     {
                         label: 'Jharkhand',
-                        href: '#Jharkhand',
+                        href: '/?destination=jharkhand',
                     },
                     {
                         label: 'Odisha',
-                        href: '#Odisha',
+                        href: '/?destination=odisha',
                     },
                     {
                         label: 'West Bengal',
-                        href: '#West-Bengal',
+                        href: '/?destination=west-bengal',
                     },
                 ]
             },
@@ -98,15 +100,15 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Maharastra',
-                        href: '#Maharastra',
+                        href: '/?destination=maharastra',
                     },
                     {
                         label: 'Goa',
-                        href: '#Goa',
+                        href: '/?destination=goa',
                     },
                     {
                         label: 'Gujarat',
-                        href: '#Gujarat',
+                        href: '/?destination=gujarat',
                     },
                 ]
             },
@@ -121,19 +123,19 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Trekking',
-                        href: '#Trekking',
+                        href: '/?category=trekking',
                     },
                     {
                         label: 'Camping',
-                        href: '#Camping',
+                        href: '/?category=camping',
                     },
                     {
                         label: 'Rafting',
-                        href: '#Rafting',
+                        href: '/?category=rafting',
                     },
                     {
                         label: 'Bunjee Jumping',
-                        href: '#Bunjee Jumping',
+                        href: '/?category=bunjee-jumping',
                     },
                 ]
             },
@@ -143,23 +145,23 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Heritage Site',
-                        href: '#Heritage Site',
+                        href: '/?category=heritage-site',
                     },
                     {
                         label: 'Festivals',
-                        href: '#Festivals',
+                        href: '/?category=festivals',
                     },
                     {
                         label: 'Temples',
-                        href: '#Temples',
+                        href: '/?category=temples',
                     },
                     {
                         label: 'Food & Cuisine',
-                        href: '#Food & Cuisine',
+                        href: '/?category=food-cuisine',
                     },
                     {
                         label: 'Art & Crafts',
-                        href: '#Art & Crafts',
+                        href: '/?category=art-crafts',
                     },
                 ]
             },
@@ -169,15 +171,15 @@ export const ITEMS = [
                 children: [
                     {
                         label: 'Beaches',
-                        href: '#Beaches',
+                        href: '/?category=beaches',
                     },
                     {
                         label: 'Hill Stations',
-                        href: '#Hill Stations',
+                        href: '/?category=hill-stations',
                     },
                     {
                         label: 'Wildlife Santuries',
-                        href: '#Wildlife Santuries',
+                        href: '/?category=wildlife-santuries',
                     },
                 ]
             },
@@ -202,7 +204,7 @@ export const ITEMS = [
     },
     {
         label: 'Contact Us',
-        href: '#Contact Us',
+        href: '/contact-us',
     },
 ]
 
@@ -213,3 +215,25 @@ export const STATUS = {
     FAILED: "FAILED",
     INVALID: "INVALID",
 };
+const { toast } = createStandaloneToast();
+
+export function SuccessAlert(message = "") {
+    toast({
+        title: "SUCCESS",
+        description: message,
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+    });
+}
+
+export function ErrorAlert(message = "") {
+    toast({
+        title: "FAILED",
+        description: message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+    });
+}

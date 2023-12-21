@@ -2,13 +2,13 @@ import { usePostStore } from "../../store/post";
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { LoadingContainer } from "../LoadingContainer";
-import { STATUS } from "../Helper";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { map } from "lodash";
 import { ShareButtons } from "./ShareButtons";
 import { ScrollIndicator } from "../ScrollIndicator";
+import { STATUS } from "../Helper";
 
 export const Blog = ({ link }: any) => {
     const router = useRouter();

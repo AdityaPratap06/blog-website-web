@@ -1,8 +1,9 @@
 import { Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { ITEMS } from "../Helper";
 import { map } from "lodash";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
+import { ITEMS } from "../Helper";
 
 export const HeaderMenu = ({ isOpen, onClose }) => {
 
@@ -15,7 +16,7 @@ export const HeaderMenu = ({ isOpen, onClose }) => {
                 <DrawerBody>
                     <Box>
                         {map(ITEMS, item => (
-                            <HeaderMenuItem item={item} />
+                            <HeaderMenuItem item={item} onClose={onClose} />
                         ))}
                     </Box>
                 </DrawerBody>
@@ -26,7 +27,13 @@ export const HeaderMenu = ({ isOpen, onClose }) => {
     )
 }
 
-const HeaderMenuItem = ({ item }) => {
+const HeaderMenuItem = ({ item, onClose }) => {
+    const router = useRouter()
+
+    const handleRoute = (url) => {
+        router.push(url)
+        onClose()
+    }
 
     const [toggleChild, setToggleChild] = useState(null)
     const [toggleSubChild, setToggleSubChild] = useState(null)
@@ -51,9 +58,9 @@ const HeaderMenuItem = ({ item }) => {
 
     return (
         <Box>
-            <Flex justify={"space-between"} fontWeight={"bold"} onClick={() => handleChild(item.label)}>
+            <Flex justify={"space-between"} fontWeight={"bold"} onClick={() => item.href ? handleRoute(item.href) : handleChild(item.label)}>
                 <Text py={1}>{item.label}</Text>
-                <Text> {item.children ? (toggleChild === item.label ? <ChevronUpIcon boxSize={5} /> : <ChevronDownIcon boxSize={5} />) : null}</Text>
+                <Text>{item.children ? (toggleChild === item.label ? <ChevronUpIcon boxSize={5} /> : <ChevronDownIcon boxSize={5} />) : null}</Text>
             </Flex>
             {item.children?.length && toggleChild === item?.label ?
                 map(item.children, child => (
@@ -65,7 +72,7 @@ const HeaderMenuItem = ({ item }) => {
                         {child.children?.length && toggleSubChild === child?.href ?
                             map(child.children, c => (
                                 <Box pl={5} borderLeft={"2px solid"} borderColor={"gray.400"}>
-                                    <Flex justify={"space-between"}>
+                                    <Flex justify={"space-between"} onClick={() => handleRoute(c.href)}>
                                         <Text py={1}>{c.label}</Text>
                                     </Flex>
                                 </Box>
