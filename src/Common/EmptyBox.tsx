@@ -1,7 +1,7 @@
 import { Box, Button, Center, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-export const EmptyBox = (props) => {
+export const EmptyBox = (props: any) => {
     const { icon, desc, title, buttonClickHandler, buttonTitle } = props;
 
     return (

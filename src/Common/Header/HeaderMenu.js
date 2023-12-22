@@ -16,7 +16,7 @@ export const HeaderMenu = ({ isOpen, onClose }) => {
                 <DrawerBody>
                     <Box>
                         {map(ITEMS, item => (
-                            <HeaderMenuItem item={item} onClose={onClose} />
+                            <HeaderMenuItem key={item.label} item={item} onClose={onClose} />
                         ))}
                     </Box>
                 </DrawerBody>
@@ -64,14 +64,14 @@ const HeaderMenuItem = ({ item, onClose }) => {
             </Flex>
             {item.children?.length && toggleChild === item?.label ?
                 map(item.children, child => (
-                    <Box pl={5} borderLeft={"2px solid"} borderColor={"gray.400"}>
+                    <Box key={child.label} pl={5} borderLeft={"2px solid"} borderColor={"gray.400"}>
                         <Flex justify={"space-between"} fontWeight={"semibold"} onClick={() => handleSubChild(child.href)}>
                             <Text py={1}>{child.label}</Text>
                             <Text> {child.children ? (toggleSubChild === child.href ? <ChevronUpIcon boxSize={5} /> : <ChevronDownIcon boxSize={5} />) : null}</Text>
                         </Flex>
                         {child.children?.length && toggleSubChild === child?.href ?
                             map(child.children, c => (
-                                <Box pl={5} borderLeft={"2px solid"} borderColor={"gray.400"}>
+                                <Box key={c.label} pl={5} borderLeft={"2px solid"} borderColor={"gray.400"}>
                                     <Flex justify={"space-between"} onClick={() => handleRoute(c.href)}>
                                         <Text py={1}>{c.label}</Text>
                                     </Flex>

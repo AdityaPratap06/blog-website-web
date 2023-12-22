@@ -2,8 +2,8 @@
 import { create } from "apisauce";
 import { apiMonitor } from "./monitor";
 
-// const BASE_URL = "http://localhost:3005";
-const BASE_URL = "https://blog-website-node.onrender.com/";
+const BASE_URL = "http://localhost:3005";
+// const BASE_URL = "https://blog-website-node.onrender.com/";
 
 export const URIS = {
   GET_ALL_POSTS: "/post/all",

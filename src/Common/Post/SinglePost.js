@@ -3,11 +3,11 @@ import dayjs from "dayjs";
 import React from "react";
 import { useRouter } from "next/router";
 
-export const SinglePost = ({ post }) => {
+export const SinglePost = ({ key, post }) => {
     const router = useRouter()
 
     return (
-        <Box mt={5} p={5} w={"100%"} bg="white" cursor={"default"} align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
+        <Box key={key} mt={5} p={5} w={"100%"} bg="white" cursor={"default"} align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
             <Image w={{ base: "100%", lg: "35%" }} aspectRatio={16 / 9} objectFit={"cover"} src={post.intro.url} alt="" />
             <Box ml={{ base: 0, md: 5 }}>
                 <Text

@@ -26,7 +26,7 @@ export const AllPosts = () => {
             <LoadingContainer loading={getAllPostsStatus === STATUS.FETCHING}>
                 {allPostsData?.data?.length ?
                     map(allPostsData?.data, post => (
-                        <SinglePost post={post} />
+                        <SinglePost kay={post._id} post={post} />
                     ))
                     :
                     <EmptyBox title="No Post Found" />

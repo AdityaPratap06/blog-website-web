@@ -20,7 +20,9 @@ export const Blog = ({ link }: any) => {
     }));
 
     useEffect(() => {
-        getPostAction({ link })
+        if (link) {
+            getPostAction({ link })
+        }
     }, [getPostAction, link]);
 
     return (
@@ -58,7 +60,7 @@ export const Blog = ({ link }: any) => {
                                 </Flex>
                             </Flex>
                             {map(postData.details, post => (
-                                <Flex mt={5} flexDir={"column"} align={"start"}>
+                                <Flex key={post._id} mt={5} flexDir={"column"} align={"start"}>
                                     {post.heading ? <Text fontSize={20} fontWeight={"bold"}>{post.heading}</Text> : null}
                                     {post.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
                                     <Text mt={3} align={"justify"}>{post.description}</Text>
@@ -76,8 +78,8 @@ export const Blog = ({ link }: any) => {
                         <Flex flexDir={"column"} align={"start"}>
                             <Flex my={3} fontSize={12} flexWrap={"wrap"}>
                                 <Text mt={2} mr={1} px={3} pb={1} bg="black" color="white">Tags</Text>
-                                {map(postData.tags, tag => (
-                                    <Text mt={2} mr={1} px={3} pb={1} bg={"#F2F2F2"} color={"#9271CE"} cursor={"pointer"} _hover={{ bg: "black", color: "white" }}>{tag}</Text>
+                                {map(postData.tags, (tag, index) => (
+                                    <Text key={index} mt={2} mr={1} px={3} pb={1} bg={"#F2F2F2"} color={"#9271CE"} cursor={"pointer"} _hover={{ bg: "black", color: "white" }}>{tag}</Text>
                                 ))}
                             </Flex>
                             <ShareButtons title={postData.title} link={postData.link} />
