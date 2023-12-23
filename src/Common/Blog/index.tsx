@@ -62,8 +62,8 @@ export const Blog = ({ link }: any) => {
                             {map(postData.details, post => (
                                 <Flex key={post._id} mt={5} flexDir={"column"} align={"start"}>
                                     {post.heading ? <Text fontSize={20} fontWeight={"bold"}>{post.heading}</Text> : null}
-                                    {post.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
-                                    <Text mt={3} align={"justify"}>{post.description}</Text>
+                                    {post.subHeading ? <Text mt={5} fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
+                                    <Text mt={3} align={"justify"} whiteSpace="pre-line">{post.description}</Text>
 
                                     <Flex w={"100%"} mt={3} flexDir={"column"} align={"center"}>
                                         <Image cursor={"pointer"} title={post.imageTitle} src={post.url} alt={post.imageTitle} />
