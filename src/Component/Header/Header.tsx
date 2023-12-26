@@ -1,14 +1,14 @@
 import { Box, Flex, Grid, GridItem, IconButton, Image, Input, InputGroup, InputLeftAddon, InputRightAddon, Menu, MenuButton, MenuItem, MenuList, Portal, Text, useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { HeaderTop } from "./HeadetTop";
 
 import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons'
-import { HeaderItem } from "./HeaderItem";
 import { map } from "lodash";
-import { ITEMS } from "../Helper";
-import { HeaderMenu } from "./HeaderMenu";
 import { useRouter } from "next/router";
-import { CenterX } from "../CenterX";
+import { HeaderTop } from "./HeadetTop";
+import { CenterX } from "@/Common/CenterX";
+import { ITEMS } from "@/Common/Helper";
+import { HeaderItem } from "./HeaderItem";
+import { HeaderMenu } from "./HeaderMenu";
 
 export const Header = () => {
     const router = useRouter()
@@ -16,7 +16,8 @@ export const Header = () => {
     const [inputData, setInputData] = useState()
 
     const handleSearch = () => {
-        router.push("/?search=" + inputData)
+        if (inputData)
+            router.push("/?search=" + inputData)
     }
     return (
         <Box>
@@ -27,12 +28,12 @@ export const Header = () => {
                         <Box w="30%" h="80px">
                             <Image src={"/assets/logo.png"} alt="logo" />
                         </Box>
-                        <Flex w={{ base: "100%", md: "50%" }} mt={{ base: 5, md: 0 }} justify={"center"}>
-                            <IconButton display={{ base: "initial", md: "none" }} icon={<HamburgerIcon />} mr={10} onClick={onOpen} />
-                            <InputGroup size='md' _focus={"none"}>
+                        <Flex w={{ base: "100%", md: "50%" }} mt={{ base: 5, md: 0 }} align={"center"}>
+                            <IconButton mt={-1} variant={"ghost"} aria-label="Menu" display={{ base: "initial", md: "none" }} icon={<HamburgerIcon />} mr={10} onClick={onOpen} />
+                            <InputGroup size='sm'>
                                 <InputLeftAddon><SearchIcon /></InputLeftAddon>
-                                <Input _focus={"none"} placeholder='Search here' onChange={(e) => setInputData(e.target.value)} />
-                                <InputRightAddon as={"Button"} onClick={handleSearch}>Search</InputRightAddon>
+                                <Input placeholder='Search here' onChange={(e: any) => setInputData(e.target.value)} />
+                                <InputRightAddon cursor={"pointer"} onClick={handleSearch}>Search</InputRightAddon>
                             </InputGroup>
                         </Flex>
                     </Flex>

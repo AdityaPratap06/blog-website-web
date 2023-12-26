@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
-import { Header } from "../Common/Header/Header";
-import { Sidebar } from "../Common/Sidebar/Sidebar";
-import { CenterX } from '../Common/CenterX';
-import { AllPosts } from '../Common/Post/AllPosts';
-import { Footer } from '../Common/Footer';
+import { Header } from '@/Component/Header/Header';
+import { CenterX } from '@/Common/CenterX';
+import { AllPosts } from '@/Component/Post/AllPosts';
+import { Sidebar } from '@/Component/Sidebar/Sidebar';
+import { Footer } from '@/Component/Footer';
 
 export default function Home() {
   return (

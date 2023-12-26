@@ -1,9 +1,8 @@
 import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import React from "react";
-import { UsefulLinks } from "./UsefulLinks";
-import { Intro } from "./Intro";
-import { CenterX } from "../CenterX";
 import { FaHeart } from "react-icons/fa";
+import { Intro } from "./Intro";
+import { UsefulLinks } from "./UsefulLinks";
 
 export const Footer = () => {
     return (
@@ -27,7 +26,7 @@ export const Footer = () => {
                     </GridItem>
                 </Grid>
             </Flex>
-            <Box borderTop={"1px solid white"} align="center">
+            <Flex borderTop={"1px solid white"} flexDir={"column"} align="center">
                 <Flex
                     py={3}
                     w={{ base: "95%", sm: "90%", md: "90%", lg: "95%", xl: "70%" }}
@@ -48,7 +47,7 @@ export const Footer = () => {
                         <Text>Disclaimer</Text>
                     </Flex>
                 </Flex>
-            </Box>
+            </Flex>
         </Box >
     )
 }

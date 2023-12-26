@@ -4,11 +4,13 @@ import { map } from "lodash";
 import { useRouter } from "next/router";
 import React from "react";
 
-export const HeaderItem = ({ item }) => {
+export const HeaderItem = ({ item }: any) => {
     const router = useRouter()
 
-    const handleRoute = (url) => {
-        router.push(url)
+    const handleRoute = (url: any) => {
+        if (url) {
+            router.push(url)
+        }
     }
 
     return (
@@ -16,6 +18,7 @@ export const HeaderItem = ({ item }) => {
             <Popover trigger={'hover'} placement={"bottom"} >
                 <PopoverTrigger>
                     <Text
+                    textAlign={"center"}
                         onClick={() => handleRoute(item?.href)}
                         role="button"
                         aria-haspopup={item?.children ? 'true' : 'false'}

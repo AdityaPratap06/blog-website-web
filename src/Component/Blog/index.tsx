@@ -1,14 +1,14 @@
-import { usePostStore } from "../../store/post";
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import { LoadingContainer } from "../LoadingContainer";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { map } from "lodash";
+import { usePostStore } from "@/store/post";
+import { LoadingContainer } from "@/Common/LoadingContainer";
+import { STATUS } from "@/Common/Helper";
 import { ShareButtons } from "./ShareButtons";
-import { ScrollIndicator } from "../ScrollIndicator";
-import { STATUS } from "../Helper";
+import { ScrollIndicator } from "@/Common/ScrollIndicator";
 
 export const Blog = ({ link }: any) => {
     const router = useRouter();
@@ -52,7 +52,7 @@ export const Blog = ({ link }: any) => {
                             </Flex>
                             <Flex mt={5} flexDir={"column"} align={"start"}>
                                 {postData.intro?.heading ? <Text fontSize={20} fontWeight={"bold"}>{postData.intro?.heading}</Text> : null}
-                                {postData.intro?.subHeading ? <Text fontSize={14} fontWeight={"semibold"}>{postData.intro?.subHeading}</Text> : null}
+                                {postData.intro?.subHeading ? <Text fontSize={16} fontWeight={"semibold"}>{postData.intro?.subHeading}</Text> : null}
                                 <Text mt={3} align={"justify"}>{postData.intro?.description}</Text>
 
                                 <Flex w={"100%"} mt={3} flexDir={"column"} align={"center"}>
@@ -62,7 +62,7 @@ export const Blog = ({ link }: any) => {
                             {map(postData.details, post => (
                                 <Flex key={post._id} mt={5} flexDir={"column"} align={"start"}>
                                     {post.heading ? <Text fontSize={20} fontWeight={"bold"}>{post.heading}</Text> : null}
-                                    {post.subHeading ? <Text mt={5} fontSize={14} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
+                                    {post.subHeading ? <Text mt={5} fontSize={16} fontWeight={"semibold"}>{post.subHeading}</Text> : null}
                                     <Text mt={3} align={"justify"} whiteSpace="pre-line">{post.description}</Text>
 
                                     <Flex w={"100%"} mt={3} flexDir={"column"} align={"center"}>

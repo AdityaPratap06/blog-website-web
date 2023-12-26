@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { map } from "lodash";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import { ITEMS } from "../Helper";
+import { ITEMS } from "@/Common/Helper";
 
-export const HeaderMenu = ({ isOpen, onClose }) => {
+export const HeaderMenu = ({ isOpen, onClose }: any) => {
 
     return (
-        <Drawer w="fit-content" isOpen={isOpen} mr={10} placement='left' onClose={onClose}>
+        <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
             <DrawerOverlay />
             <DrawerContent>
                 <DrawerCloseButton />
@@ -27,18 +27,20 @@ export const HeaderMenu = ({ isOpen, onClose }) => {
     )
 }
 
-const HeaderMenuItem = ({ item, onClose }) => {
+const HeaderMenuItem = ({ item, onClose }: any) => {
     const router = useRouter()
 
-    const handleRoute = (url) => {
-        router.push(url)
-        onClose()
+    const handleRoute = (url: any) => {
+        if (url) {
+            router.push(url)
+            onClose()
+        }
     }
 
     const [toggleChild, setToggleChild] = useState(null)
     const [toggleSubChild, setToggleSubChild] = useState(null)
 
-    const handleChild = (child) => {
+    const handleChild = (child: any) => {
         if (child === toggleChild) {
             setToggleChild(null)
         }
@@ -47,7 +49,7 @@ const HeaderMenuItem = ({ item, onClose }) => {
         }
     }
 
-    const handleSubChild = (child) => {
+    const handleSubChild = (child: any) => {
         if (child === toggleSubChild) {
             setToggleSubChild(null)
         }

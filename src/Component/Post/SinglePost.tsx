@@ -3,13 +3,13 @@ import dayjs from "dayjs";
 import React from "react";
 import { useRouter } from "next/router";
 
-export const SinglePost = ({ key, post }) => {
+export const SinglePost = ({ key, post }: any) => {
     const router = useRouter()
 
     return (
-        <Box key={key} mt={5} p={5} w={"100%"} bg="white" cursor={"default"} align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
-            <Image w={{ base: "100%", lg: "35%" }} aspectRatio={16 / 9} objectFit={"cover"} src={post.intro.url} alt="" />
-            <Box ml={{ base: 0, md: 5 }}>
+        <Flex key={key} mt={5} p={5} w={"100%"} bg="white" cursor={"default"} align="start" display={"flex"} flexDir={{ base: "column", lg: "row" }} boxShadow={"1px 1px 10px rgba(0, 0, 0, 0.2)"} >
+            <Image w={{ base: "100%", lg: "35%" }} h={190} aspectRatio={{ base: 16 / 9, lg: "none" }} objectFit={"cover"} src={post.intro.url} alt="" />
+            <Box w={{ base: "100%", lg: "65%" }} ml={{ base: 0, md: 5 }}>
                 <Text
                     mt={{ base: 2, lg: 0 }}
                     fontSize={{ base: 18, lg: 22 }}
@@ -20,7 +20,7 @@ export const SinglePost = ({ key, post }) => {
                 >
                     {post.title}
                 </Text>
-                <Flex py={2} fontSize={{ base: 10, sm: 12, lg: 13 }} color="gray.500" fontStyle={"italic"}>
+                <Flex pb={2} fontSize={{ base: 10, sm: 12, lg: 13 }} color="gray.500" fontStyle={"italic"}>
                     <Text cursor={"pointer"}>{post.tags?.[0]}</Text>
                     <Text mx={2}>-</Text>
                     <Text cursor={"pointer"} _hover={{ color: "gray.900" }} onClick={() => window.open(post.author.url)}>{post.author?.name}</Text>
@@ -37,8 +37,6 @@ export const SinglePost = ({ key, post }) => {
                         as="span"
                         display="-webkit-box"
                         lineHeight="1.2em"
-                        _webkitBoxOrient="vertical"
-                        _webkitLineClamp={4}
                     >
                         {post.intro?.description}...
                     </Text>
@@ -58,6 +56,6 @@ export const SinglePost = ({ key, post }) => {
                     CONTINUE READING
                 </Flex>
             </Box>
-        </Box>
+        </Flex>
     )
 }

@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/react";
 import React from "react";
 import { FollowUs } from "./FollowUs";
 import { PopularPosts } from "./PopularPosts";
-import { Facebook } from "./Facebook";
 
 export const Sidebar = () => {
     return (

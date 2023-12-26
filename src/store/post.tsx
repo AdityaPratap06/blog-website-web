@@ -1,11 +1,6 @@
-// import { STATUS } from "../../constants";
-// import { apis } from "../../services/apis/api";
-// import { ErrorAlert, SuccessAlert } from "../../utils/Helper";
-// import { filter, map } from "lodash";
-
+import { ErrorAlert, STATUS } from "@/Common/Helper";
+import { apis } from "@/services/apis/api";
 import { create } from "zustand";
-import { apis } from "../services/apis/api";
-import { ErrorAlert, STATUS } from "../Common/Helper";
 
 export const usePostStore = create((set, get) => ({
     getAllPostsAction: async (payload: any) => {

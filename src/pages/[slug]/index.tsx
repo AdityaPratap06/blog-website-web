@@ -1,7 +1,7 @@
 import React from 'react';
-import { MainLayout } from '../../layouts/MainLayout';
 import { useRouter } from 'next/router';
-import { Blog } from '../../Common/Blog';
+import { MainLayout } from '@/layouts/MainLayout';
+import { Blog } from '@/Component/Blog';
 
 export default function Page() {
     const { query } = useRouter()
