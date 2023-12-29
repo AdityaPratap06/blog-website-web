@@ -21,7 +21,7 @@ export const FollowUs = () => {
                     <GridItem w='100%'>
                         <IconX icon={<FaYoutube />} title={"YouTube"} bg="red.500" />
                     </GridItem>
-                    <GridItem w='100%'>
+                    <GridItem w='100%' cursor={"pointer"} onClick={() => window.open("https://www.instagram.com/thebloggingbuzz_")}>
                         <IconX icon={<RiInstagramFill />} title={"Instagram"} bgGradient='linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)' />
                     </GridItem>
                 </Grid>

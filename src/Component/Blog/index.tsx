@@ -84,7 +84,6 @@ export const Blog = ({ link }: any) => {
                             </Flex>
                             <ShareButtons title={postData.title} link={postData.link} />
                         </Flex>
-                        <ScrollIndicator />
                     </Flex>
                     :
                     null

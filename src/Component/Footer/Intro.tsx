@@ -7,7 +7,7 @@ export const Intro = () => {
             <Text fontWeight={"bold"} fontSize={16}>Introduction</Text>
 
             <Box mt={4}>
-                <Image h={"50px"} src="" alt="Intro" border={"1px solid red"} />
+                <Image h={"50px"} src="/assets/logo1.png" alt="Intro" />
                 <Text>diu dnnnsd rfjun  fjdnfnds vdsnfvi ndfv bn iu nfvn nvfndfvn dfn vjdhfvf.</Text>
             </Box>
         </Box>
