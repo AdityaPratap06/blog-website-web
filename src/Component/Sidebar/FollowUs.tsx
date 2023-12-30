@@ -12,13 +12,13 @@ export const FollowUs = () => {
             <SideHeading title="Follow Us" />
             <Flex w="100%" p={5} flexDir={"column"} align={"center"}>
                 <Grid templateColumns='repeat(2, 1fr)' gap={2}>
-                    <GridItem w='100%'>
+                    <GridItem w='100%' cursor={"pointer"} onClick={() => window.open("https://www.facebook.com/people/The-Blogging-Buzz/61555000862976/")}>
                         <IconX icon={<MdOutlineFacebook />} title={"Facebook"} bg="blue.600" />
                     </GridItem>
-                    <GridItem w='100%'>
+                    <GridItem w='100%' cursor={"pointer"} onClick={() => window.open("")}>
                         <IconX icon={<FaXTwitter />} title={"Twitter"} bg="blackAlpha.700" />
                     </GridItem>
-                    <GridItem w='100%'>
+                    <GridItem w='100%' cursor={"pointer"} onClick={() => ("")}>
                         <IconX icon={<FaYoutube />} title={"YouTube"} bg="red.500" />
                     </GridItem>
                     <GridItem w='100%' cursor={"pointer"} onClick={() => window.open("https://www.instagram.com/thebloggingbuzz_")}>

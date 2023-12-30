@@ -8,30 +8,10 @@ import { CenterX } from "@/Common/CenterX";
 export const Footer = () => {
     return (
         <Box w="100%" mt={5} bg="blackAlpha.900" color="white">
-            {/* <Flex
-                py={3}
-                w={{ base: "95%", sm: "90%", md: "90%", lg: "95%", xl: "70%" }}
-                flexDir={{ base: "column", md: "row" }}
-                justify={"space-between"}
-                align={"center"}
-            >
-                <Grid display={{ base: "row", md: "grid" }} templateColumns={`repeat(3, 1fr)`} gap={10} fontWeight={"semibold"}>
-                    <GridItem w='100%' py={2}>
-                        <Intro />
-                    </GridItem>
-                    <GridItem w='100%' py={2}>
-                        <UsefulLinks />
-                    </GridItem>
-                    <GridItem w='100%' py={2}>
-                        <UsefulLinks />
-                    </GridItem>
-                </Grid>
-            </Flex> */}
-
+            <Intro />
             <CenterX>
                 <Grid display={{ base: "row", md: "grid" }} py={5} templateColumns={`repeat(3, 1fr)`} gap={10} fontWeight={"semibold"}>
                     <GridItem w='100%' py={2}>
-                        <Intro />
                     </GridItem>
                     <GridItem w='100%' py={2}>
                         <UsefulLinks />
@@ -41,7 +21,7 @@ export const Footer = () => {
                     </GridItem>
                 </Grid>
             </CenterX>
-            <Flex borderTop={"1px solid white"} flexDir={"column"} align="center">
+            <Flex borderTop={"1px solid"} borderColor={"gray.500"} flexDir={"column"} align="center">
                 <Flex
                     py={3}
                     w={{ base: "95%", sm: "90%", md: "90%", lg: "95%", xl: "70%" }}
