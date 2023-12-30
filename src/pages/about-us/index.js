@@ -1,11 +1,11 @@
 import React from 'react';
 import { MainLayout } from '@/layouts/MainLayout';
-import { ContactUs } from '@/Component/ContactUs';
+import { AboutUs } from '@/Component/AboutUs';
 
 export default function Page() {
     return (
         <MainLayout>
-            <ContactUs />
+            <AboutUs />
         </MainLayout>
     )
 }

@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { GetInTouch } from "./GetInTouchForm";
+import { GetInTouch } from "./GetInTouch";
 
 export const ContactUs = () => {
     return (
