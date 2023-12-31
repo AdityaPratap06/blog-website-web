@@ -16,10 +16,10 @@ export const Intro = () => {
             >
                 <Image h="50px" src="/assets/logo1.png" alt="The Blogging Buzz" />
                 <Flex gap={4}>
-                    <IconX bgColor="blue.700" icon={<FaFacebookF />} />
+                    <IconX bgColor="blue.700" icon={<FaFacebookF />} link={"https://www.facebook.com/people/The-Blogging-Buzz/61555000862976/"} />
                     <IconX bgColor="gray.700" icon={<FaXTwitter />} />
                     <IconX bgColor="red.500" icon={<FaYoutube />} />
-                    <IconX bgGradient={"linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)"} icon={<RiInstagramFill />} />
+                    <IconX bgGradient={"linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)"} icon={<RiInstagramFill />} link={"https://www.instagram.com/thebloggingbuzz_"} />
                 </Flex>
             </Flex>
         </Flex>
@@ -28,7 +28,7 @@ export const Intro = () => {
 
 const IconX = ({ bgColor, bgGradient, icon, link }: any) => {
     return (
-        <Flex w={"40px"} h={"40px"} border={"3px solid"} bg="white" borderRadius={100} borderColor={"gray.200"} align="center" position="relative" justify="center" role="group" overflow={"hidden"} onClick={() => window.open(link)}>
+        <Flex w={"40px"} h={"40px"} border={"3px solid"} bg="white" borderRadius={100} borderColor={"gray.200"} align="center" position="relative" justify="center" role="group" overflow={"hidden"} cursor={"pointer"} onClick={() => window.open(link)}>
             <Flex position="absolute" w={"100%"} zIndex={1} h={"0"} bottom={0} _groupHover={{ h: "100%", bg: bgColor, bgGradient: bgGradient, transition: "height .3s linear" }} />
             {bgColor ?
                 <Flex position="relative" color={bgColor} zIndex={9} transition='all 0.5s' _groupHover={{ color: "#fff", transform: "rotateY(360deg)" }}>
