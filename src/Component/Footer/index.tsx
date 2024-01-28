@@ -4,8 +4,10 @@ import { FaHeart } from "react-icons/fa";
 import { Intro } from "./Intro";
 import { UsefulLinks } from "./UsefulLinks";
 import { CenterX } from "@/Common/CenterX";
+import { useRouter } from "next/router";
 
 export const Footer = () => {
+    const router = useRouter()
     return (
         <Box w="100%" mt={5} bg="blackAlpha.900" color="white">
             <Intro />
@@ -38,7 +40,7 @@ export const Footer = () => {
                     <Flex align={"center"} gap={3}>
                         <Text>Home</Text>
                         {/* <Text>Contact Us</Text> */}
-                        <Text>Privacy Policy</Text>
+                        <Text cursor={"pointer"} onClick={() => router.push("privacy-policy")} _hover={{ color: "#9271CE" }}>Privacy Policy</Text>
                         <Text>Disclaimer</Text>
                     </Flex>
                 </Flex>

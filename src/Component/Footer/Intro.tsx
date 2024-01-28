@@ -18,7 +18,7 @@ export const Intro = () => {
                 <Flex gap={4}>
                     <IconX bgColor="blue.700" icon={<FaFacebookF />} link={"https://www.facebook.com/people/The-Blogging-Buzz/61555000862976/"} />
                     <IconX bgColor="gray.700" icon={<FaXTwitter />} />
-                    <IconX bgColor="red.500" icon={<FaYoutube />} />
+                    <IconX bgColor="red.500" icon={<FaYoutube />} link={"https://www.youtube.com/channel/UC84d7MJTLF7UkLPeg7RSZHw"} />
                     <IconX bgGradient={"linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)"} icon={<RiInstagramFill />} link={"https://www.instagram.com/thebloggingbuzz_"} />
                 </Flex>
             </Flex>
